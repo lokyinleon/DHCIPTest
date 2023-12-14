@@ -35,7 +35,7 @@ jobs:
           echo Second,Add other actions to build,
           echo test, and deploy your project.
 
-       # Runs Four Step
-      - name: Run Four Step
+       # Runs Third Step
+      - name: Run Third Step
         run: |
-          echo Four Step
+          echo Third Step

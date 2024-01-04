@@ -22,6 +22,8 @@ jobs:
          run: echo "Hello2"
        - name: Print Name2
          run: echo "Name2"
+       - name: Checkout code
+         uses: actions/checkout@v2
          
          
     

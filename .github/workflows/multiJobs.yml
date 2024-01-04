@@ -10,8 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
        - name: Print greeting
-         run: echo "Hello"
-              echo "Hello Hello"
+         run: |
+             echo "Hello"
+             echo "Hello Hello"
        - name: Print Name
          run: echo "Name"
   second-job:

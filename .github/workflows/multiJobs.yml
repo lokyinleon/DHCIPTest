@@ -6,7 +6,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  first-job:
+    build:
     runs-on: ubunta-lastest
     steps:
        - name: Print greeting

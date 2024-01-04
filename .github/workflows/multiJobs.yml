@@ -13,5 +13,13 @@ jobs:
          run: echo "Hello"
        - name: Print Name
          run: echo "Name"
+  second-job:
+     runs-on: ubuntu-latest
+     steps:
+       - name: Print greeting2
+         run: echo "Hello2"
+       - name: Print Name2
+         run: echo "Name2"
+         
          
     

@@ -24,7 +24,7 @@ jobs:
        runs-on: ubuntu-latest
        steps:
          - name: Print greeting2
-           run: cho "Hello2"
+           run: echo "Hello2"
          - name: Print Name2
            run: echo "Name2"
          - name: Checkout code

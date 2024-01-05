@@ -11,15 +11,18 @@ on:
 
 jobs:
     test:
-      runs-on: ubuntu-latest
+      continue-on-error: true
+      strategy:
+         matrix:
+          operating-system: [ubuntu-lastest,windows-lastest]
+      runs-on: ${{matrix.operating-system}}
       steps:
-         - name: Print greeting
-           run: |
-               echo "Hello"
-               echo "Hello Hello"
-         - name: Print Name
-           continue-on-error: true
-           run: cho "Name"
+           - name: Print greeting
+             run: |
+                 echo "Hello"
+                 echo "Hello Hello"
+           - name: Print Name
+             run: cho "Name"
     deploy:
        needs: test
        runs-on: ubuntu-latest

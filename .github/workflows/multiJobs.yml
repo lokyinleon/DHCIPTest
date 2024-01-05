@@ -46,7 +46,11 @@ jobs:
     fail-job:
          if: failure()
          needs: [test,deploy]
-         runs-on: ubuntu-latest
+         continue-on-error: true
+         strategy:
+             matrix:
+              operating-system: [ubuntu-lastest]
+         runs-on: ${{matrix.operating-system}}
          steps:
           - name: if failure
             run: echo "alternative step"

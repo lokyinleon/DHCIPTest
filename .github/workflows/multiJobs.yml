@@ -15,11 +15,11 @@ jobs:
       steps:
          - name: Print greeting
            run: |
-               cho "Hello"
+               echo "Hello"
                echo "Hello Hello"
          - name: Print Name
            continue-on-error: true
-           run: echo "Name"
+           run: cho "Name"
     deploy:
        needs: test
        runs-on: ubuntu-latest

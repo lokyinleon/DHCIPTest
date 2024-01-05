@@ -38,13 +38,17 @@ jobs:
            if: failure() && steps.set-up-python.outcome == 'failure'
            run: echo "${{toJSON(github)}}"
     output-info:
-        if: failure()
         needs: deploy
         runs-on: ubuntu-latest
         steps:
           - name: Output event details
             run: echo "${{ toJSON(github.event) }}"
-           
-           
+    fail-job:
+         if: failure()
+         needs: deploy
+         runs-on: ubuntu-latest
+         steps:
+          - name: if failure
+            run: echo "alternative step"
          
     

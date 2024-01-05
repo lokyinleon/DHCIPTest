@@ -11,11 +11,6 @@ on:
 
 jobs:
     test:
-      continue-on-error: true
-      strategy:
-         matrix:
-          operating-system: [ubuntu-lastest]
-      runs-on: ${{matrix.operating-system}}
       steps:
            - name: Print greeting
              run: |

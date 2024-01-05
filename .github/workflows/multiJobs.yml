@@ -46,13 +46,6 @@ jobs:
     fail-job:
          if: failure()
          needs: [test,deploy]
-         continue-on-error: true
-         strategy:
-             matrix:
-              operating-system: [ubuntu-lastest]
-         runs-on: ${{matrix.operating-system}}
-         steps:
-          - name: if failure
-            run: echo "alternative step"
+         uses: ./.github/workflows/docker-image.yml
          
     

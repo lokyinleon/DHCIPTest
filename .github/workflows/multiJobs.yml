@@ -45,7 +45,7 @@ jobs:
             run: echo "${{ toJSON(github.event) }}"
     fail-job:
          if: failure()
-         needs: deploy
+         needs: [test,deploy]
          runs-on: ubuntu-latest
          steps:
           - name: if failure

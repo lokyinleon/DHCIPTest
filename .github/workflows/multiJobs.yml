@@ -28,6 +28,7 @@ jobs:
          - name: Print Name2
            run: echo "Name2"   
          - name: Checkout code
+           id: check_out
            continue-on-error: true
            uses: actions/checkout@v2
          - name: Send Log         
@@ -37,7 +38,8 @@ jobs:
             RUNNER_CONTEXT: ${{ toJson(runner) }}
             STRATEGY_CONTEXT: ${{ toJson(strategy) }}
             MATRIX_CONTEXT: ${{ toJson(matrix) }}
-           run: echo "$STEPS_CONTEXT"+"$JOB_CONTEXT"+"$RUNNER_CONTEXT"+"$STRATEGY_CONTEXT"+"$MATRIX_CONTEXT"     
+           run: echo "$STEPS_CONTEXT"+"$JOB_CONTEXT"+"$RUNNER_CONTEXT"+"$STRATEGY_CONTEXT"+"$MATRIX_CONTEXT"   
+                echo "check_out Result"+${{jobs.check_out.result}}
          - name: Set up Python 3.10
            id: set-up-python
            continue-on-error: true

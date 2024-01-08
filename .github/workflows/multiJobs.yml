@@ -42,8 +42,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: Output event details
-            run: echo "${{ toJSON(github.actor) }}"
-                 echo "${{ toJSON(github.run_number) }}"
+            run: echo "${{ toJSON(github.action) }}"
+            
     fail-job:
          if: failure()
          needs: [test,deploy]

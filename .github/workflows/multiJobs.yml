@@ -41,7 +41,7 @@ jobs:
          - name: Set up Python 3.10
            id: set-up-python
            continue-on-error: true
-           uses: actions/etup-python@v3
+           uses: actions/setup-python@v3
            with:
             python-version: "3.10"
 
@@ -63,7 +63,7 @@ jobs:
           - name: Output event details
             env:
               STEPS_CONTEXT: ${{ toJson(steps) }}
-              JOB_CONTEXT: ${{ toJson(job) }}
+              JOB_CONTEXT: ${{ toJson(jobs) }}
               RUNNER_CONTEXT: ${{ toJson(runner) }}
               STRATEGY_CONTEXT: ${{ toJson(strategy) }}
               MATRIX_CONTEXT: ${{ toJson(matrix) }}

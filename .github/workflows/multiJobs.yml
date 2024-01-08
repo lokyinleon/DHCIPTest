@@ -43,7 +43,7 @@ jobs:
         steps:
           - name: Output event details
             run: echo "${{ toJSON(github.actor) }}"
-                 echo github.run_number
+                 echo "${{ toJSON(github.run_number) }}"
     fail-job:
          if: failure()
          needs: [test,deploy]

@@ -15,8 +15,9 @@ jobs:
       steps:
            - name: Print greeting
              id: print_greeting
+             continue-on-error: true
              run: |
-                 echo "Hello"
+                 rcho "Hello"
                  echo "Hello Hello"
            - name: Print Name
              id: print_name

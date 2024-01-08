@@ -28,6 +28,7 @@ jobs:
          - name: Print Name2
            run: echo "Name2"   
          - name: Checkout code
+           continue-on-error: true
            uses: actions/checkout@v2
          - name: Send Log         
            env:

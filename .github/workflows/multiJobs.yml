@@ -32,7 +32,7 @@ jobs:
               RUN_ATTEMPT: ${{ toJson(github.run_attempt) }}
               RUN_JOB: ${{ toJson(github.job) }}
              run: |
-                   echo "{
+                  LOG_DATA="{
                         \"STEP_STATUS\": \"$STEPS_CONTEXT\",
                         \"JOB\": \"$JOB_CONTEXT\",
                         \"RUNNER\": \"$RUNNER_CONTEXT\",
@@ -41,7 +41,8 @@ jobs:
                         \"RUN_NUMBER\": \"$RUN_NUMBER\",
                         \"RUN_ATTEMPT\": \"$RUN_ATTEMPT\",
                         \"JOB_NAME\": \"$RUN_JOB\"
-                      }"  
+                      }" 
+                  echo "Logging data: $LOG_DATA"     
     deploy:
        needs: test
        runs-on: ubuntu-latest

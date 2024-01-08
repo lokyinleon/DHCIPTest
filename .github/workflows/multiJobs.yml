@@ -26,6 +26,7 @@ jobs:
          - name: Print greeting2
            run: echo "Greeting2" 
          - name: Print Name2
+           id: print_name2
            run: echo "Name2"   
          - name: Checkout code
            id: check_out
@@ -39,7 +40,6 @@ jobs:
             STRATEGY_CONTEXT: ${{ toJson(strategy) }}
             MATRIX_CONTEXT: ${{ toJson(matrix) }}
            run: echo "$STEPS_CONTEXT"+"$JOB_CONTEXT"+"$RUNNER_CONTEXT"+"$STRATEGY_CONTEXT"+"$MATRIX_CONTEXT"   
-                echo ${{steps.check_out.result}}
          - name: Set up Python 3.10
            id: set-up-python
            continue-on-error: true

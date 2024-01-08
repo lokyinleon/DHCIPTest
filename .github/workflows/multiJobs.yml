@@ -39,7 +39,7 @@ jobs:
             STRATEGY_CONTEXT: ${{ toJson(strategy) }}
             MATRIX_CONTEXT: ${{ toJson(matrix) }}
            run: echo "$STEPS_CONTEXT"+"$JOB_CONTEXT"+"$RUNNER_CONTEXT"+"$STRATEGY_CONTEXT"+"$MATRIX_CONTEXT"   
-                echo ${{jobs.check_out.result}}
+                echo ${{steps.check_out.result}}
          - name: Set up Python 3.10
            id: set-up-python
            continue-on-error: true

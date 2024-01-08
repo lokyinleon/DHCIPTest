@@ -14,10 +14,12 @@ jobs:
       runs-on: ubuntu-latest
       steps:
            - name: Print greeting
+             id: print_greeting
              run: |
                  echo "Hello"
                  echo "Hello Hello"
            - name: Print Name
+             id: print_name
              run: echo "Name"
            - name: Send Log         
              env:

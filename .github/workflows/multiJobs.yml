@@ -42,7 +42,7 @@ jobs:
                         \"RUN_ATTEMPT\": \"$RUN_ATTEMPT\",
                         \"JOB_NAME\": \"$RUN_JOB\"
                       }" 
-                  cho "Logging data: $LOG_DATA"     
+                  echo "Logging data: $LOG_DATA"     
     deploy:
        needs: test
        runs-on: ubuntu-latest

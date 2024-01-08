@@ -72,7 +72,7 @@ jobs:
               RUN_NUMBER: ${{ toJson(github.run_number) }}
               RUN_ATTEMPT: ${{ toJson(github.run_attempt) }}
               RUN_JOB: ${{ toJson(github.job) }}
-              run: |
+           run: |
                   LOG_DATA="{
                         \"STEP_STATUS\": \"$STEPS_CONTEXT\",
                         \"JOB\": \"$JOB_CONTEXT\",
@@ -83,7 +83,7 @@ jobs:
                         \"RUN_ATTEMPT\": \"$RUN_ATTEMPT\",
                         \"JOB_NAME\": \"$RUN_JOB\"
                       }" 
-                  echo "Logging data: $LOG_DATA"    
+                  echo "Logging data: $LOG_DATA"  
          - name: Output GitHub Context
            if: failure() && steps.set-up-python.outcome == 'failure'
            run: echo "${{toJSON(github)}}"

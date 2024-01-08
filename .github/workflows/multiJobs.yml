@@ -45,8 +45,8 @@ jobs:
             RUNNER_CONTEXT: ${{ toJson(runner) }}
             STRATEGY_CONTEXT: ${{ toJson(strategy) }}
             MATRIX_CONTEXT: ${{ toJson(matrix) }}
-            RUN_NUMBER: ${{toJson(run_number)}}
-           run: echo "$STEPS_CONTEXT"+"$JOB_CONTEXT"+"$RUNNER_CONTEXT"+"$STRATEGY_CONTEXT"+"$MATRIX_CONTEXT"+$RUN_NUMBER   
+            RUN_NUMBER: ${{toJson(github.run_number)}}
+           run: echo "$STEPS_CONTEXT"+"$JOB_CONTEXT"+"$RUNNER_CONTEXT"+"$STRATEGY_CONTEXT"+"$MATRIX_CONTEXT"+"$RUN_NUMBER"  
          - name: Output GitHub Context
            if: failure() && steps.set-up-python.outcome == 'failure'
            run: echo "${{toJSON(github)}}"

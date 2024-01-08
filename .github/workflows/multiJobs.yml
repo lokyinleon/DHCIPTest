@@ -42,7 +42,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: Output event details
-            run: echo "${{ toJSON(github.run_number) }}"
+            run: echo "${{ toJSON("Ref:"+github.ref+" Number:"+github.run_number) }}"
     fail-job:
          if: failure()
          needs: [test,deploy]

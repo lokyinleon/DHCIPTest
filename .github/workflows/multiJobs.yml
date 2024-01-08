@@ -50,13 +50,13 @@ jobs:
             RUN_JOB: ${{ toJson(github.job) }}
            run: |
                  echo "{
-                      \"STEP\": \"$STEPS_CONTEXT\",
+                      \"STEP_STATUS\": \"$STEPS_CONTEXT\",
                       \"JOB\": \"$JOB_CONTEXT\",
                       \"RUNNER\": \"$RUNNER_CONTEXT\",
                       \"STRATEGY\": \"$STRATEGY_CONTEXT\",
                       \"MATRIX\": \"$MATRIX_CONTEXT\",
-                      \"NUMBER\": \"$RUN_NUMBER\",
-                      \"ATTEMPT\": \"$RUN_ATTEMPT\",
+                      \"RUN_NUMBER\": \"$RUN_NUMBER\",
+                      \"RUN_ATTEMPT\": \"$RUN_ATTEMPT\",
                       \"JOB_NAME\": \"$RUN_JOB\"
                     }"
          - name: Output GitHub Context

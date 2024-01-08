@@ -11,7 +11,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      id: build docker image
+      id: build_docker_image
       run: docker build . --file testdockerfilePY --tag my-image-name:$(date +%s)
     - name: Send Log         
       env:

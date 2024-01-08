@@ -74,7 +74,7 @@ jobs:
               RUN_ATTEMPT: ${{ toJson(github.run_attempt) }}
               RUN_JOB: ${{ toJson(github.job) }}
            run: |
-                 if [[ "${{ github.event_name }}" != "push" ]]; then
+                 if [[ "${{ github.event_name }}" == "push" ]]; then
                     echo "Previous job failed. Not sending log."
                   else
                     LOG_DATA="{

@@ -19,6 +19,27 @@ jobs:
                  echo "Hello Hello"
            - name: Print Name
              run: echo "Name"
+           - name: Send Log         
+             env:
+              STEPS_CONTEXT: ${{ toJson(steps) }}
+              JOB_CONTEXT: ${{ toJson(job) }}
+              RUNNER_CONTEXT: ${{ toJson(runner) }}
+              STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+              MATRIX_CONTEXT: ${{ toJson(matrix) }}
+              RUN_NUMBER: ${{ toJson(github.run_number) }}
+              RUN_ATTEMPT: ${{ toJson(github.run_attempt) }}
+              RUN_JOB: ${{ toJson(github.job) }}
+             run: |
+                   echo "{
+                        \"STEP_STATUS\": \"$STEPS_CONTEXT\",
+                        \"JOB\": \"$JOB_CONTEXT\",
+                        \"RUNNER\": \"$RUNNER_CONTEXT\",
+                        \"STRATEGY\": \"$STRATEGY_CONTEXT\",
+                        \"MATRIX\": \"$MATRIX_CONTEXT\",
+                        \"RUN_NUMBER\": \"$RUN_NUMBER\",
+                        \"RUN_ATTEMPT\": \"$RUN_ATTEMPT\",
+                        \"JOB_NAME\": \"$RUN_JOB\"
+                      }"  
     deploy:
        needs: test
        runs-on: ubuntu-latest

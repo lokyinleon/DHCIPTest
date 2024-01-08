@@ -32,21 +32,12 @@ jobs:
            id: check_out
            continue-on-error: true
            uses: actions/checkout@v2
-         - name: Send Log         
-           env:
-            STEPS_CONTEXT: ${{ toJson(steps) }}
-            JOB_CONTEXT: ${{ toJson(job) }}
-            RUNNER_CONTEXT: ${{ toJson(runner) }}
-            STRATEGY_CONTEXT: ${{ toJson(strategy) }}
-            MATRIX_CONTEXT: ${{ toJson(matrix) }}
-           run: echo "$STEPS_CONTEXT"+"$JOB_CONTEXT"+"$RUNNER_CONTEXT"+"$STRATEGY_CONTEXT"+"$MATRIX_CONTEXT"   
          - name: Set up Python 3.10
            id: set-up-python
            continue-on-error: true
            uses: actions/setup-python@v3
            with:
             python-version: "3.10"
-
          - name: Send Log         
            env:
             STEPS_CONTEXT: ${{ toJson(steps) }}

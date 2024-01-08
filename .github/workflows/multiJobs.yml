@@ -42,7 +42,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: Output event details
-            run: echo "${{toJSON(github.workflow),toJSON(github.triggering_actor)}}"
+            run: echo "${{toJSON(github.workflow)}}"
             
     fail-job:
          if: failure()

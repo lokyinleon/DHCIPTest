@@ -63,7 +63,7 @@ jobs:
           - name: Output event details
             env:
               STEPS_CONTEXT: ${{ toJson(steps) }}
-              JOB_CONTEXT: ${{ toJson(jobs) }}
+              JOB_CONTEXT: ${{ toJson(job) }}
               RUNNER_CONTEXT: ${{ toJson(runner) }}
               STRATEGY_CONTEXT: ${{ toJson(strategy) }}
               MATRIX_CONTEXT: ${{ toJson(matrix) }}

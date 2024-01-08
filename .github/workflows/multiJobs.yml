@@ -32,7 +32,7 @@ jobs:
             MATRIX_CONTEXT: ${{ toJson(matrix) }}
            run: echo "$STEPS_CONTEXT"+"$JOB_CONTEXT"+"$RUNNER_CONTEXT"+"$STRATEGY_CONTEXT"+"$MATRIX_CONTEXT" 
          - name: Print Name2
-           run: echo "N旦2" 
+           run: echo "Name2" 
          - name: Checkout code
            uses: actions/checkout@v2
          - name: Set up Python 3.10

@@ -49,7 +49,17 @@ jobs:
             RUN_ATTEMPT: ${{ toJson(github.run_attempt) }}
             RUN_JOB: ${{ toJson(github.job) }}
            run: |
-                echo ${{ toJson("STEP:$STEPS_CONTEXT JOB:$JOB_CONTEXT RUNNER:$RUNNER_CONTEXT STRATEGY:$STRATEGY_CONTEXT MATRIX:$MATRIX_CONTEXT NUMBER:$RUN_NUMBER ATTEMPT:$RUN_ATTEMPT JOB_NAME$RUN_JOB")}}
+                 echo "::set-output name=workflowJson::{
+                      \"STEP\": \"$STEPS_CONTEXT\",
+                      \"JOB\": \"$JOB_CONTEXT\",
+                      \"RUNNER\": \"$RUNNER_CONTEXT\",
+                      \"STRATEGY\": \"$STRATEGY_CONTEXT\",
+                      \"MATRIX\": \"$MATRIX_CONTEXT\",
+                      \"NUMBER\": \"$RUN_NUMBER\",
+                      \"ATTEMPT\": \"$RUN_ATTEMPT\",
+                      \"JOB_NAME\": \"$RUN_JOB\"
+                    }"
+                 echo "Workflow JSON: ${{ steps.display.outputs.workflowJson }}"  
          - name: Output GitHub Context
            if: failure() && steps.set-up-python.outcome == 'failure'
            run: echo "${{toJSON(github)}}"

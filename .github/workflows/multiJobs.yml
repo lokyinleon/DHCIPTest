@@ -30,9 +30,9 @@ jobs:
             RUNNER_CONTEXT: ${{ toJson(runner) }}
             STRATEGY_CONTEXT: ${{ toJson(strategy) }}
             MATRIX_CONTEXT: ${{ toJson(matrix) }}
-           run: echo "Hello2"
-         - name: Print Name2
            run: echo "$STEPS_CONTEXT"+"$JOB_CONTEXT"+"$RUNNER_CONTEXT"+"$STRATEGY_CONTEXT"+"$MATRIX_CONTEXT" 
+         - name: Print Name2
+           run: echo "N旦2" 
          - name: Checkout code
            uses: actions/checkout@v2
          - name: Set up Python 3.10

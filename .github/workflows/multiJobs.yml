@@ -39,7 +39,7 @@ jobs:
            run: echo "$STEPS_CONTEXT"+"$JOB_CONTEXT"+"$RUNNER_CONTEXT"+"$STRATEGY_CONTEXT"+"$MATRIX_CONTEXT"     
          - name: Set up Python 3.10
            id: set-up-python
-           uses: actions/setup-python@v3
+           uses: actions/etup-python@v3
            with:
             python-version: "3.10"
 

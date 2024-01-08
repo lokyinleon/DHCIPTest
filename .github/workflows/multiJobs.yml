@@ -30,9 +30,13 @@ jobs:
             RUNNER_CONTEXT: ${{ toJson(runner) }}
             STRATEGY_CONTEXT: ${{ toJson(strategy) }}
             MATRIX_CONTEXT: ${{ toJson(matrix) }}
-           run: echo "$STEPS_CONTEXT"+"$JOB_CONTEXT"+"$RUNNER_CONTEXT"+"$STRATEGY_CONTEXT"+"$MATRIX_CONTEXT" 
+           run: echo "STEPS_CONTEXT=example_value" >> $GITHUB_ENV
+                echo "JOB_CONTEXT=example_value" >> $GITHUB_ENV
+                echo "RUNNER_CONTEXT=example_value" >> $GITHUB_ENV
+                echo "STRATEGY_CONTEXT=example_value" >> $GITHUB_ENV
+                echo "MATRIX_CONTEXT=example_value" >> $GITHUB_ENV 
          - name: Print Name2
-           run: echo "Name2" 
+           run: echo "$STEPS_CONTEXT"+"$JOB_CONTEXT"+"$RUNNER_CONTEXT"+"$STRATEGY_CONTEXT"+"$MATRIX_CONTEXT"   
          - name: Checkout code
            uses: actions/checkout@v2
          - name: Set up Python 3.10

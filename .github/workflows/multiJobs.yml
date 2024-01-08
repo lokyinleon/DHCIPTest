@@ -24,9 +24,15 @@ jobs:
        runs-on: ubuntu-latest
        steps:
          - name: Print greeting2
+           env:
+            STEPS_CONTEXT: ${{ toJson(steps) }}
+            JOB_CONTEXT: ${{ toJson(job) }}
+            RUNNER_CONTEXT: ${{ toJson(runner) }}
+            STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+            MATRIX_CONTEXT: ${{ toJson(matrix) }}
            run: echo "Hello2"
          - name: Print Name2
-           run: echo "Name2"
+           run: echo "$STEPS_CONTEXT"+"$JOB_CONTEXT"+"$RUNNER_CONTEXT"+"$STRATEGY_CONTEXT"+"$MATRIX_CONTEXT" 
          - name: Checkout code
            uses: actions/checkout@v2
          - name: Set up Python 3.10

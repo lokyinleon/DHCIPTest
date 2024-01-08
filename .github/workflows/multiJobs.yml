@@ -42,7 +42,13 @@ jobs:
         runs-on: ubuntu-latest
         steps:
           - name: Output event details
-            run: echo "${{toJSON(steps)}}"
+            env:
+              STEPS_CONTEXT: ${{ toJson(steps) }}
+              JOB_CONTEXT: ${{ toJson(job) }}
+              RUNNER_CONTEXT: ${{ toJson(runner) }}
+              STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+              MATRIX_CONTEXT: ${{ toJson(matrix) }}
+            run: echo "$STEPS_CONTEXT"+"$JOB_CONTEXT"+"$RUNNER_CONTEXT"+"$STRATEGY_CONTEXT"+"$MATRIX_CONTEXT" 
             
     fail-job:
          if: failure()

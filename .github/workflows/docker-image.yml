@@ -35,3 +35,4 @@ jobs:
             \"JOB_NAME\": \"$RUN_JOB\"
              }" 
             echo "Logging data: $LOG_DATA"  
+            echo ls

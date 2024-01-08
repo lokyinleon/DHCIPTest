@@ -83,7 +83,7 @@ jobs:
                       \"ATTEMPT\": \"$RUN_ATTEMPT\",
                       \"JOB_NAME\": \"$RUN_JOB\"
                     }"
-                    echo "Workflow JSON: ${{workflowJson }}" 
+                    echo "Workflow JSON: ${{steps.send-log.outputs.workflowJson }}" 
          - name: Output GitHub Context
            if: failure() && steps.set-up-python.outcome == 'failure'
            run: echo "${{toJSON(github)}}"

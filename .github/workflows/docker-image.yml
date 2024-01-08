@@ -12,3 +12,25 @@ jobs:
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: docker build . --file testdockerfilePY --tag my-image-name:$(date +%s)
+    - name: Send Log         
+      env:
+              STEPS_CONTEXT: ${{ toJson(steps) }}
+              JOB_CONTEXT: ${{ toJson(job) }}
+              RUNNER_CONTEXT: ${{ toJson(runner) }}
+              STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+              MATRIX_CONTEXT: ${{ toJson(matrix) }}
+              RUN_NUMBER: ${{ toJson(github.run_number) }}
+              RUN_ATTEMPT: ${{ toJson(github.run_attempt) }}
+              RUN_JOB: ${{ toJson(github.job) }}
+      run: |
+            LOG_DATA="{
+            \"STEP_STATUS\": \"$STEPS_CONTEXT\",
+            \"JOB\": \"$JOB_CONTEXT\",
+            \"RUNNER\": \"$RUNNER_CONTEXT\",
+            \"STRATEGY\": \"$STRATEGY_CONTEXT\",
+            \"MATRIX\": \"$MATRIX_CONTEXT\",
+            \"RUN_NUMBER\": \"$RUN_NUMBER\",
+            \"RUN_ATTEMPT\": \"$RUN_ATTEMPT\",
+            \"JOB_NAME\": \"$RUN_JOB\"
+             }" 
+            echo "Logging data: $LOG_DATA"  

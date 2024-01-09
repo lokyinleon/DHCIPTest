@@ -74,6 +74,7 @@ jobs:
               RUN_ATTEMPT: ${{ toJson(github.run_attempt) }}
               RUN_JOB: ${{ toJson(github.job) }}
            run: |
+                
                  LOG_DATA="{
                           \"STEP_STATUS\": \"$STEPS_CONTEXT\",
                           \"JOB\": \"$JOB_CONTEXT\",

@@ -32,7 +32,6 @@ jobs:
               RUN_NUMBER: ${{ toJson(github.run_number) }}
               RUN_ATTEMPT: ${{ toJson(github.run_attempt) }}
               RUN_JOB: ${{ toJson(github.job) }}
-              LOG_CLOUD: ${{ toJson("OpenShift") }}
              run: |
                   LOG_DATA="{
                         \"STEP_STATUS\": \"$STEPS_CONTEXT\",
@@ -43,7 +42,6 @@ jobs:
                         \"RUN_NUMBER\": \"$RUN_NUMBER\",
                         \"RUN_ATTEMPT\": \"$RUN_ATTEMPT\",
                         \"JOB_NAME\": \"$RUN_JOB\",
-                        \"LOG_CLOUD"\:\"$LOG_CLOUD"\,
                       }" 
                   echo "Logging data: $LOG_DATA"     
     deploy:

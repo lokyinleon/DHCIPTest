@@ -33,7 +33,8 @@ jobs:
               RUN_ATTEMPT: ${{ toJson(github.run_attempt) }}
               RUN_JOB: ${{ toJson(github.job) }}
              run: |
-                  JSON_RESULT=$(echo "aaaaaa" | jq -c '.')
+                  YOUR_STRING='{"key":"value"}'
+                  JSON_RESULT=$(echo "$YOUR_STRING" | jq -c '.')
                   LOG_DATA="{
                         \"STEP_STATUS\": \"$STEPS_CONTEXT\",
                         \"JOB\": \"$JOB_CONTEXT\",

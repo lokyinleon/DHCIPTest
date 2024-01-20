@@ -46,7 +46,7 @@ jobs:
                         \"JOB_NAME\": \"$RUN_JOB\",
                         \"JSON_TEST\": \"$JSON_RESULT\",
                       }" 
-                  echo "Logging data: $LOG_DATA"     
+                  cho "Logging data: $LOG_DATA"     
     deploy:
        needs: test
        runs-on: ubuntu-latest

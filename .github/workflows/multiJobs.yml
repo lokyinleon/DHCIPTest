@@ -97,10 +97,6 @@ jobs:
         needs: deploy
         runs-on: ubuntu-latest
         steps:
-          - name: Checkout code
-            id: check_out
-            continue-on-error: true
-            uses: actions/checkout@v2
           - name: Output event details
             env:
               STEPS_CONTEXT: ${{ toJson(steps) }}
@@ -115,6 +111,10 @@ jobs:
           needs: [test,deploy]
           runs-on: ubuntu-latest
           steps:
+            - name: Checkout code
+              id: check_out
+              continue-on-error: true
+              uses: actions/checkout@v2
             - name: setEnv
               run: |
                    echo "action_state=yellow" >> $GITHUB_ENV

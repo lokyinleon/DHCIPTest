@@ -48,7 +48,7 @@ jobs:
                   echo "Logging data: $LOG_DATA"   
                   
            - name: call other workflow
-             uses: ./.github/workflows/docker-image.yml
+             uses: actions/tryheroku/dockertry.yml@v1
              with:
                     name: "Call"
 

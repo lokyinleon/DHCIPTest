@@ -89,7 +89,7 @@ jobs:
                           \"RUN_ATTEMPT\": \"$RUN_ATTEMPT\",
                           \"JOB_NAME\": \"$RUN_JOB\"
                         }" 
-                  cho "Logging data: $LOG_DATA"  
+                  echo "Logging data: $LOG_DATA"  
          - name: Output GitHub Context
            if: failure() && steps.set-up-python.outcome == 'failure'
            run: echo "${{toJSON(github)}}"
@@ -104,7 +104,20 @@ jobs:
               RUNNER_CONTEXT: ${{ toJson(runner) }}
               STRATEGY_CONTEXT: ${{ toJson(strategy) }}
               MATRIX_CONTEXT: ${{ toJson(matrix) }}
-            run: echo "$STEPS_CONTEXT"+"$JOB_CONTEXT"+"$RUNNER_CONTEXT"+"$STRATEGY_CONTEXT"+"$MATRIX_CONTEXT" 
+            run: echo "$STEPS_CONTEXT"+"$JOB_CONTEXT"+"$RUNNER_CONTEXT"+"$STRATEGY_CONTEXT"+"$MATRIX_CONTEXT"
+
+
+    call-other-workflow:
+          needs: output-info
+          runs-on: ubuntu-latest
+          steps:
+            - name: setEnv
+              run: |
+                   echo "action_state=yellow" >> $GITHUB_ENV
+            - name: call other workflow
+              uses: ./.github/workflows/docker-image.yml
+              with:
+                    name: "Data"
             
     fail-job:
          if: failure()

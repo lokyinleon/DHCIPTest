@@ -112,7 +112,7 @@ jobs:
 
 
     call-other-workflow:
-          needs: output-info
+          needs: [test,deploy]
           runs-on: ubuntu-latest
           steps:
             - name: Checkout code

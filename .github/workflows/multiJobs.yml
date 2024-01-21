@@ -48,7 +48,7 @@ jobs:
                   echo "Logging data: $LOG_DATA"   
                   
            - name: call other workflow
-             uses: lokyinleon/tryheroku@main
+             uses: lokyinleon/tryheroku@master
              with:
                     name: "Call"
 

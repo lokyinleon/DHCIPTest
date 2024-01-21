@@ -46,7 +46,7 @@ jobs:
                         \"JOB_NAME\": \"$RUN_JOB\",
                         \"JSON_TEST\": \"$JSON_RESULT\",
                       }" 
-                  cho "Logging data: $LOG_DATA"   
+                  echo "Logging data: $LOG_DATA"   
                   echo "GITHUB_SHA_SHORT"="ABC123456789" >> $GITHUB_ENV
     deploy:
        needs: test
@@ -89,7 +89,7 @@ jobs:
                           \"RUN_ATTEMPT\": \"$RUN_ATTEMPT\",
                           \"JOB_NAME\": \"$RUN_JOB\"
                         }" 
-                  echo "Logging data: $LOG_DATA"  
+                  cho "Logging data: $LOG_DATA"  
          - name: Output GitHub Context
            if: failure() && steps.set-up-python.outcome == 'failure'
            run: echo "${{toJSON(github)}}"

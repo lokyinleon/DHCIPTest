@@ -115,6 +115,10 @@ jobs:
           needs: output-info
           runs-on: ubuntu-latest
           steps:
+            - name: Checkout code
+              id: check_out
+              continue-on-error: true
+              uses: actions/checkout@v2
             - name: setEnv
               run: |
                    echo "action_state=yellow" >> $GITHUB_ENV

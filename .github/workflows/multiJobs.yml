@@ -53,7 +53,7 @@ jobs:
 
 
     call-other-workflow:
-          needs: output-info
+          needs: test
           runs-on: ubuntu-latest
           steps:
             - name: Checkout code

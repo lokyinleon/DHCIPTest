@@ -49,22 +49,14 @@ jobs:
                         \"JSON_TEST\": \"$JSON_RESULT\",
                       }" 
                   echo "Logging data: $LOG_DATA"   
-
-
-
-    call-other-workflow:
-          needs: test
-          runs-on: ubuntu-latest
-          steps:
-            - name: Checkout code
-              uses: actions/checkout@v3
-            - name: setEnv
-              run: |
-                   echo "action_state=yellow" >> $GITHUB_ENV
-            - name: call other workflow
-              uses: ./.github/workflows/docker-image.yml
-              with:
+                  
+           - name: call other workflow
+             uses: ./.github/workflows/docker-image.yml
+             with:
                     name: "Call"
+
+
+
     deploy:
        needs: test
        runs-on: ubuntu-latest

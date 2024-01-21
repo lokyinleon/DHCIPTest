@@ -6,8 +6,6 @@ on:
     branches: [ "main" ]
     types:
       - opened
-    paths-ignore:
-      - '.github/workflows/*'
 
 jobs:
     test:

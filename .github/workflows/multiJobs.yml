@@ -19,6 +19,7 @@ jobs:
              run: |
                  echo "Hello"
                  echo "Hello Hello"
+                 echo "GITHUB_SHA_SHORT"="ABC123456789" >> $GITHUB_ENV
            - name: Print Name
              id: print_name
              run: echo "Name"
@@ -47,7 +48,7 @@ jobs:
                         \"JSON_TEST\": \"$JSON_RESULT\",
                       }" 
                   echo "Logging data: $LOG_DATA"   
-                  echo "GITHUB_SHA_SHORT"="ABC123456789" >> $GITHUB_ENV
+                  
     deploy:
        needs: test
        runs-on: ubuntu-latest

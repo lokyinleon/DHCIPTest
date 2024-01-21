@@ -112,7 +112,7 @@ jobs:
             run: |
                   echo "action_state=yellow" >> $GITHUB_ENV
           - name: call other workflow
-            uses: lokyinleon/tryheroku@v2
+            uses: lokyinleon/tryheroku@master
             with: 
                  name: "Test"
 

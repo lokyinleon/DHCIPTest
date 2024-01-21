@@ -19,7 +19,7 @@ jobs:
              run: |
                  echo "Hello"
                  echo "Hello Hello"
-                 echo "GITHUB_SHA_SHORT"="ABC123456789" >> $GITHUB_ENV
+                 echo "GITHUB_SHA_SHORT=ABC123456789" >> $GITHUB_ENV
            - name: Print Name
              id: print_name
              run: echo "Name"

@@ -19,7 +19,6 @@ jobs:
              run: |
                  echo "Hello"
                  echo "Hello Hello"
-                 echo "GITHUB_SHA_SHORT=ABC123456789" >> $GITHUB_ENV
            - name: Print Name
              id: print_name
              run: echo "Name"
@@ -108,10 +107,16 @@ jobs:
             run: echo "$STEPS_CONTEXT"+"$JOB_CONTEXT"+"$RUNNER_CONTEXT"+"$STRATEGY_CONTEXT"+"$MATRIX_CONTEXT" 
             
     fail-job:
+         runs-on: ubuntu-latest
          if: failure()
          needs: [test,deploy]
-         uses: ./.github/workflows/docker-image.yml
-         with:
-              name: "Data"
+         steps:
+            - name: setEnv
+              run: |
+               echo "GITHUB_SHA_SHORT=ABC123456789" >> $GITHUB_ENV
+            - name: CallOtherWorkflow    
+              uses: ./.github/workflows/docker-image.yml
+              with:
+                    name: "Data"
          
     

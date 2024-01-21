@@ -110,7 +110,7 @@ jobs:
 
 
     call-other-workflow:
-          needs: [output-info]
+          needs: output-info
           runs-on: ubuntu-latest
           steps:
             - name: setEnv

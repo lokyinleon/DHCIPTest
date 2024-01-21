@@ -46,7 +46,7 @@ jobs:
                         \"JSON_TEST\": \"$JSON_RESULT\",
                       }" 
                   echo "Logging data: $LOG_DATA"   
-                  echo "action_state=yellow" >> $GITHUB_ENV
+                  
 
 
 
@@ -107,7 +107,10 @@ jobs:
               STRATEGY_CONTEXT: ${{ toJson(strategy) }}
               MATRIX_CONTEXT: ${{ toJson(matrix) }}
             run: echo "$STEPS_CONTEXT"+"$JOB_CONTEXT"+"$RUNNER_CONTEXT"+"$STRATEGY_CONTEXT"+"$MATRIX_CONTEXT"
-                  
+
+          - name: setEnv
+            run: |
+                  echo "action_state=yellow" >> $GITHUB_ENV
           - name: call other workflow
             uses: lokyinleon/tryheroku@master
             with: 

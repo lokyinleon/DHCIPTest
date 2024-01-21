@@ -46,6 +46,7 @@ jobs:
                         \"JSON_TEST\": \"$JSON_RESULT\",
                       }" 
                   echo "Logging data: $LOG_DATA"   
+                  echo "action_state=yellow" >> $GITHUB_ENV
                   
            - name: call other workflow
              uses: lokyinleon/tryheroku@master

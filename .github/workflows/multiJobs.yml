@@ -108,7 +108,7 @@ jobs:
 
 
     call-other-workflow:
-          needs: [test,deploy]
+          needs: [output-info]
           runs-on: ubuntu-latest
           steps:
             - name: setEnv

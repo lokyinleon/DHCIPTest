@@ -50,6 +50,8 @@ jobs:
                   
            - name: call other workflow
              uses: lokyinleon/tryheroku@master
+             with: 
+                 name: "Test"
 
 
 
